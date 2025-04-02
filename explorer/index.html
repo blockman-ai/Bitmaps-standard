@@ -119,3 +119,33 @@
   </script>
 </body>
 </html>
+<script>
+  const grid = document.getElementById('grid');
+  const info = document.getElementById('info');
+
+  async function loadClaims() {
+    const response = await fetch('claims.json');
+    const claimedBlocks = await response.json();
+
+    for (let i = 839950; i <= 840050; i++) {
+      const cell = document.createElement('div');
+      cell.classList.add('cell');
+      if (claimedBlocks[i]) {
+        cell.classList.add('claimed');
+        cell.onclick = () => {
+          const data = claimedBlocks[i];
+          info.innerHTML = `
+            <h3>Block ${i}</h3>
+            <p><strong>Name:</strong> ${data.name}</p>
+            <p><strong>Theme:</strong> ${data.theme}</p>
+            <p><strong>Artist:</strong> ${data.artist}</p>
+            <p><a href="https://ordinals.com/inscription/${data.inscription}" target="_blank" style="color:#00ff88;">View Inscription</a></p>
+          `;
+        };
+      }
+      grid.appendChild(cell);
+    }
+  }
+
+  loadClaims();
+</script>
