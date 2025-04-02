@@ -48,3 +48,52 @@ Each block is a story, a space, a dimension. Bitmaps unlock that potential.
   "theme": "Post-halving monument",
   "coordinates": [0, 0]
 }
+```
+
+---
+
+## 4. Rules & Integrity
+
+- One block = One parcel = One canonical claim  
+- Metadata is optional and flexible  
+- All data is permanently on-chain via inscriptions  
+- Indexing is community-driven and experimental — always **DYOR**
+
+---
+
+## 5. Use Cases
+
+- **Virtual Land**: Claim, trade, and build visual layers on parcels  
+- **Games**: Design mechanics based on time (block height) or rarity (early blocks)  
+- **Art**: Turn blocks into generative art canvases or curated galleries  
+- **Lore**: Build timelines, temples, or ruins on historical block events  
+- **Collectibles**: Display collections that evolve per block/era
+
+---
+
+## 6. Ecosystem Stack
+
+- **Indexer**: Parses the chain for valid `bitmap-claim` inscriptions  
+- **Explorer**: UI for browsing parcels, viewing claims, and visualizing blocks  
+- **Renderer**: Optional community-built tools to visualize Bitmaps in 2D/3D  
+- **Toolkit**: Open-source repo for building on Bitmap data
+
+---
+
+## 7. Community Growth
+
+- Launch initial claiming guide + indexer  
+- Drop Genesis Blocks (milestone parcels)  
+- Offer dev bounties to expand renderers, games, or integrations  
+- Onboard artists, devs, lore masters, and collectors  
+- Host quests/challenges using Bitmap coordinates
+
+---
+
+## 8. Final Notes
+
+- **This is experimental.** Indexing rules may evolve as the community builds.  
+- No central server, no admin key — just inscriptions and interpretations.  
+- A metaverse truly **on Bitcoin**, not around it.
+
+```
