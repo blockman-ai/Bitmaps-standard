@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bitmap Explorer</title>
+  <style>
+    body { font-family: sans-serif; background: #0d1117; color: #fff; margin: 0; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, 20px); gap: 2px; padding: 10px; }
+    .cell { width: 20px; height: 20px; background: #222; border-radius: 2px; cursor: pointer; }
+    .claimed { background: #00ff88; }
+    .info { padding: 10px; background: #161b22; position: fixed; right: 0; top: 0; height: 100vh; width: 300px; overflow: auto; }
+  </style>
+</head>
+<body>
+  <div class="grid" id="grid"></div>
+  <div class="info" id="info">Click a claimed block to see details.</div>
+
+  <script>
+    const claimedBlocks = {
+      "840000": {
+        name: "Genesis Tower",
+        theme: "Post-halving monument",
+        coordinates: [0, 0],
+        artist: "blockman-ai",
+        inscription: "f529ddd9cb9d7b013bee584bfe319f9640b8f834da90b4999a4a322fe09d107e"
+      }
+    };
+
+    const grid = document.getElementById('grid');
+    const info = document.getElementById('info');
+
+    for (let i = 839950; i <= 840050; i++) {
+      const cell = document.createElement('div');
+      cell.classList.add('cell');
+      if (claimedBlocks[i]) {
+        cell.classList.add('claimed');
+        cell.onclick = () => {
+          const data = claimedBlocks[i];
+          info.innerHTML = `
+            <h3>Block ${i}</h3>
+            <p><strong>Name:</strong> ${data.name}</p>
+            <p><strong>Theme:</strong> ${data.theme}</p>
+            <p><strong>Artist:</strong> ${data.artist}</p>
+            <p><a href="https://ordinals.com/inscription/${data.inscription}" target="_blank">View Inscription</a></p>
+          `;
+        };
+      }
+      grid.appendChild(cell);
+    }
+  </script>
+</body>
+</html>
