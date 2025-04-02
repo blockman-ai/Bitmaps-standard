@@ -3,17 +3,86 @@
 <head>
   <meta charset="UTF-8">
   <title>Bitmap Explorer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    body { font-family: sans-serif; background: #0d1117; color: #fff; margin: 0; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, 20px); gap: 2px; padding: 10px; }
-    .cell { width: 20px; height: 20px; background: #222; border-radius: 2px; cursor: pointer; }
-    .claimed { background: #00ff88; }
-    .info { padding: 10px; background: #161b22; position: fixed; right: 0; top: 0; height: 100vh; width: 300px; overflow: auto; }
+    body {
+      margin: 0;
+      background: #0d1117;
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    header {
+      padding: 15px;
+      background: #161b22;
+      border-bottom: 1px solid #30363d;
+      text-align: center;
+      font-size: 1.2em;
+      font-weight: bold;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: row;
+      height: calc(100vh - 50px);
+    }
+
+    .grid {
+      flex: 1;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(16px, 1fr));
+      gap: 2px;
+      padding: 10px;
+      overflow-y: scroll;
+    }
+
+    .cell {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      background: #1c1f26;
+      border: 1px solid #2f333d;
+      border-radius: 2px;
+      transition: 0.2s ease;
+    }
+
+    .cell.claimed {
+      background: #00ff88;
+    }
+
+    .cell:hover {
+      transform: scale(1.2);
+      z-index: 2;
+      position: relative;
+    }
+
+    .info {
+      width: 300px;
+      background: #161b22;
+      padding: 20px;
+      border-left: 1px solid #30363d;
+      overflow-y: auto;
+    }
+
+    @media (max-width: 800px) {
+      .container {
+        flex-direction: column;
+      }
+
+      .info {
+        width: 100%;
+        height: 250px;
+        border-left: none;
+        border-top: 1px solid #30363d;
+      }
+    }
   </style>
 </head>
 <body>
-  <div class="grid" id="grid"></div>
-  <div class="info" id="info">Click a claimed block to see details.</div>
+  <header>Bitmap Explorer</header>
+  <div class="container">
+    <div class="grid" id="grid"></div>
+    <div class="info" id="info">Click a claimed block to see details.</div>
+  </div>
 
   <script>
     const claimedBlocks = {
@@ -41,7 +110,7 @@
             <p><strong>Name:</strong> ${data.name}</p>
             <p><strong>Theme:</strong> ${data.theme}</p>
             <p><strong>Artist:</strong> ${data.artist}</p>
-            <p><a href="https://ordinals.com/inscription/${data.inscription}" target="_blank">View Inscription</a></p>
+            <p><a href="https://ordinals.com/inscription/${data.inscription}" target="_blank" style="color:#00ff88;">View Inscription</a></p>
           `;
         };
       }
@@ -50,4 +119,3 @@
   </script>
 </body>
 </html>
-Added initial Bitmap Explorer UI
