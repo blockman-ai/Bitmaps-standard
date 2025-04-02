@@ -22,6 +22,7 @@ Each block becomes a virtual parcel with infinite creative potential — from lo
 - Claim spec: coming soon
 - Indexer: in development
 - Explorer: coming soon
+- First Parcel Claimed: Block 840000 – [Genesis Tower](docs/genesis-claims.md)
 
 ---
 
