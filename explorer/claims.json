@@ -14,20 +14,3 @@
     "inscription": "example1234567890abcdef" 
   }
 }
-,
-{
-  "840000": {
-    "name": "Genesis Tower",
-    "theme": "Post-halving monument",
-    "coordinates": [0, 0],
-    "artist": "blockman-ai",
-    "inscription": "f529ddd9cb9d7b013bee584bfe319f9640b8f834da90b4999a4a322fe09d107e"
-  },
-  "840001": {
-    "name": "Moon Echo",
-    "theme": "First light after the halving",
-    "coordinates": [1, 0],
-    "artist": "blockman-ai",
-    "inscription": "your_new_inscription_id_here"
-  }
-}
