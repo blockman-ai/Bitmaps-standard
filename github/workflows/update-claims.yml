@@ -1,0 +1,34 @@
+name: Auto Update Bitmap Claims
+
+on:
+  schedule:
+    - cron: '0 * * * *' # Runs every hour
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Run claim sync script
+        run: |
+          python explorer/sync_claims.py
+
+      - name: Commit updated claims.json
+        run: |
+          git config --global user.email "action@github.com"
+          git config --global user.name "GitHub Action"
+          git add explorer/claims.json
+          git commit -m "Auto update claims.json" || echo "No changes"
+          git push
